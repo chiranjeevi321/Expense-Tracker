@@ -1,5 +1,10 @@
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -7,7 +12,258 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.app {
+  width: 400px;
+  margin: 30px auto;
+  text-align: center;
+  border: 1px solid #f7f7f7;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  min-height: 90vh;
+  min-width: 250px;
+}
+@media (max-width: 400px) {
+  .app {
+    width: 100vw;
+  }
+  .modal-content {
+    width: 80vw;
+  }
+}
+
+.title {
+  margin: 20px;
+  font-size: x-large;
+}
+
+.btn-income {
+  padding: 10px;
+  margin: 20px 5px;
+  width: 40%;
+  border: 2px solid#2ecc71;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  color: #2ecc71;
+  font-size: medium;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.btn-expense {
+  padding: 10px;
+  margin: 20px 5px;
+  width: 40%;
+  border: 2px solid #e74c3c;
+  border-radius: 5px;
+  outline: none;
+  background: transparent;
+  color: #e74c3c;
+  font-size: medium;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.summary-card {
+  width: 80%;
+  margin: 20px auto;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card-income > p {
+  /* color: #2ecc71; */
+  margin: 2px;
+}
+.card-expenses > p {
+  /* color: #e74c3c; */
+  margin: 2px;
+}
+
+.divider {
+  border-right: 1px solid black;
+  line-height: 40px;
+}
+
+.your-balance {
+  width: 80%;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.your-balance > p {
+  margin: 0;
+}
+
+.history-card {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.history-card-title {
+  font-size: large;
+  text-align: left;
+  border-bottom: 1px solid #999;
+}
+.history-card-content {
+  height: 40vh;
+  overflow-y: auto;
+}
+
+.income-trans {
+  width: 100%;
+  margin: 10px 0 10px auto;
+  text-align: left;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  border-right: 5px solid #2ecc71;
+  padding: 5px;
+  position: relative;
+}
+.expense-trans {
+  width: 100%;
+  margin: 10px 0 10px auto;
+  text-align: left;
+
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  border-right: 5px solid #e74c3c;
+  padding: 5px;
+  position: relative;
+}
+
+.transaction-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expense-trans > p,
+.income-trans > p {
+  margin: 5px;
+}
+
+.deleteBtn {
+  opacity: 0;
+  position: absolute;
+  left: -10%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  border: 3px solid #fff;
+  border-radius: 50%;
+  background-color: #f7f7f7;
+  outline: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.income-trans:hover .deleteBtn {
+  opacity: 1;
+}
+
+.expense-trans:hover .deleteBtn {
+  opacity: 1;
+}
+
+.income-trans:hover,
+.expense-trans:hover {
+  width: 90%;
+  transition: all;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 300px;
+  min-height: 60vh;
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+}
+
+.modal-content > p {
+  font-size: large;
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+form {
+  margin: 30px auto;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  border: 1px solid #fff;
+  border-radius: 5px;
+}
+
+form > input {
+  display: block;
+  width: 80%;
+  text-align: left;
+  padding: 10px;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 1px solid #999;
+  outline: none;
+}
+
+form > input:focus {
+  border: 2px solid black;
+}
+
+form > button {
+  display: block;
+  width: 80%;
+  margin: 20px auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: 3px solid #2ecc71;
+  cursor: pointer;
+  color: #fff;
+  background-color: #2ecc71;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  font-size: medium;
+}
+
+form > label {
+  display: block;
+  width: 80%;
+  text-align: left;
+  margin: 10px auto;
+}
+
+.exit-modal {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #2ecc71;
+  background: transparent;
+  font-size: medium;
+  color: #2ecc71;
+  cursor: pointer;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }
